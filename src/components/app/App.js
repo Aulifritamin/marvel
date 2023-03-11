@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ComicsList from '../comicsList/ComicsList';
 import AppHeader from "../appHeader/AppHeader";
 import RandomChar from "../randomChar/RandomChar";
 import CharList from "../charList/CharList";
@@ -22,10 +23,11 @@ const onCharSelected = (id) => {
                 <RandomChar/>
                 <div className="char__content">
                     <CharList onCharSelected={onCharSelected}/>
-                    {/* <ErrorBoundary>
+                    <ErrorBoundary>
                         <CharInfo charId={selectedChar}/>
-                    </ErrorBoundary> */}
+                    </ErrorBoundary>
                 </div>
+                {/* <ComicsList/> */}
                 <img className="bg-decoration" src={decoration} alt="vision"/>
             </main>
         </div>

@@ -11,7 +11,7 @@ const RandomChar = () => {
 
     const [char, setChar] = useState(null);
 
-    const {loading, error, getCharacters} = useMarvelService();
+    const {loading, error, getCharacters, clearError} = useMarvelService();
 
     useEffect(() => {
         updateChar();
@@ -27,6 +27,7 @@ const RandomChar = () => {
     }
 
     const updateChar = () => {
+        clearError()
         const id =  Math.floor(Math.random() * (1010789 - 1009146) + 1009146);
         getCharacters(id)
         .then(onChatLoaded);

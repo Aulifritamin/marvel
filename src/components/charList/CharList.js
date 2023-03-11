@@ -87,14 +87,12 @@ const CharList = (props) => {
         const items = renderItems(charList);
         const errorComponent = error ? <ErrorMessage /> : null;
         const loadingSpinner = loading && !newItemLoading ? <Spinner /> : null;
-        const content = !(loading || error) ? items : null;
 
         return (
             <div className="char__list" >
                 {errorComponent}
                 {loadingSpinner}
-                {content}
-
+                {items}
                 <button 
                         className="button button__main button__long"
                         disabled={newItemLoading}
