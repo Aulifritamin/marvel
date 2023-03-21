@@ -12,9 +12,9 @@ const ComicsList = () => {
     const [newItemLoading, setNewItemLoading] = useState(false)
     const [offset, setOffset] = useState(0);
     const [comicsEnded, setComicsEnded] = useState(false)
-    
 
-    const {loading, error, getAllComics} = useMarvelService();
+
+    const { loading, error, getAllComics } = useMarvelService();
 
     useEffect(() => {
         onRequest(offset, true);
@@ -23,9 +23,9 @@ const ComicsList = () => {
     const onRequest = (offset, initial) => {
         initial ? setNewItemLoading(false) : setNewItemLoading(true);
         getAllComics(offset, true)
-        .then(onComicsListLoaded)
-        }
-        
+            .then(onComicsListLoaded)
+    }
+
     const onComicsListLoaded = (newComicsList) => {
         let ended = false;
         if (newComicsList.length < 8) {
@@ -45,7 +45,7 @@ const ComicsList = () => {
             return (
                 <li className="comics__item" key={i}>
                     <Link to={`/comics/${item.id}`}>
-                        <img src={item.thumbnail} alt={item.title} className="comics__item-img"/>
+                        <img src={item.thumbnail} alt={item.title} className="comics__item-img" />
                         <div className="comics__item-name">{item.title}</div>
                         <div className="comics__item-price">{item.price}</div>
                     </Link>
@@ -60,21 +60,19 @@ const ComicsList = () => {
         )
     };
 
-        const items = renderItems(comicsList);
-        const errorComponent = error ? <ErrorMessage/> : null;
-        const loadingSpinner = loading && !newItemLoading ? <Spinner/> : null;
-        const log = console.log(items)
+    const items = renderItems(comicsList);
+    const errorComponent = error ? <ErrorMessage /> : null;
+    const loadingSpinner = loading && !newItemLoading ? <Spinner /> : null;
 
     return (
         <div className="comics__list">
-            {log}
             {errorComponent}
             {loadingSpinner}
             {items}
             <button className="button button__main button__long"
-                    disabled={newItemLoading} 
-                    style={{'display' : comicsEnded ? 'none' : 'block'}}
-                    onClick={() => onRequest(offset)}>
+                disabled={newItemLoading}
+                style={{ 'display': comicsEnded ? 'none' : 'block' }}
+                onClick={() => onRequest(offset)}>
                 <div className="inner">load more</div>
             </button>
         </div>

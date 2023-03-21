@@ -28,7 +28,7 @@ const RandomChar = () => {
 
     const updateChar = () => {
         clearError()
-        const id =  Math.floor(Math.random() * (1010789 - 1009146) + 1009146);
+        const id =  Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
         getCharacters(id)
         .then(onChatLoaded);
     }
