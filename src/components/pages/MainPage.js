@@ -34,6 +34,7 @@ const MainPage = () => {
                 <ErrorBoundary>
                     <CharSearchForm/>
                 </ErrorBoundary>
+                тут что-то для теста
                 </div>
                 </div>
                 <img className="bg-decoration" src={decoration} alt="vision"/>
